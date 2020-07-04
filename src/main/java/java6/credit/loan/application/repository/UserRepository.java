@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository
         extends CrudRepository<User, Long> {
 
-    User findByPhone(String phone);
+    User findByPhoneNumber(String phoneNumber);
 
 }

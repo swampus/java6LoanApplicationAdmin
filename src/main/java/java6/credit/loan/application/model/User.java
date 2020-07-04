@@ -11,7 +11,7 @@ public class User {
     private Long userPk;
 
     @Column
-    private String user;
+    private String name;
 
     @Column
     private String surname;
@@ -34,12 +34,12 @@ public class User {
         this.userPk = userPk;
     }
 
-    public String getUser() {
-        return user;
+    public String getName() {
+        return name;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSurname() {
@@ -78,7 +78,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "userPk=" + userPk +
-                ", user='" + user + '\'' +
+                ", user='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", personalCode='" + personalCode + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
