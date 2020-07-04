@@ -29,6 +29,9 @@ public final class LoanApplication {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Interests interest;
+
     public User getUser() {
         return user;
     }
@@ -83,6 +86,14 @@ public final class LoanApplication {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Interests getInterest() {
+        return interest;
+    }
+
+    public void setInterest(Interests interest) {
+        this.interest = interest;
     }
 
     @Override

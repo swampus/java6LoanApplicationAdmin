@@ -82,7 +82,6 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", personalCode='" + personalCode + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", loanApplications=" + loanApplications +
                 '}';
     }
 }
