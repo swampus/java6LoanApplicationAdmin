@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class LoanApplication {
+public final class LoanApplication {
 
     @Id
     @GeneratedValue
@@ -26,8 +26,7 @@ public class LoanApplication {
     @Column
     private String type;
 
-    @Column
-    @ManyToOne(fetch = )
+    @ManyToOne
     private User user;
 
     public long getLoanApplicationPk() {

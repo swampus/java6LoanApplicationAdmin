@@ -1,7 +1,5 @@
 package java6.credit.loan.application.model;
 
-import javax.money.Monetary;
-import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,6 +23,7 @@ public class User {
     private String phoneNumber;
 
     @Column
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<LoanApplication> loanApplications;
 
     public long getUserPk() {
