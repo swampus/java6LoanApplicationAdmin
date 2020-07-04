@@ -17,9 +17,6 @@ public class Application {
             = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-
-
-
         LOG.info("Application started");
         SpringApplication.run(Application.class, args);
     }

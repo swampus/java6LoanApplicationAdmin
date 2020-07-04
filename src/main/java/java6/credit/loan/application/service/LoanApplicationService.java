@@ -5,6 +5,7 @@ import java6.credit.loan.application.model.LoanApplication;
 import java6.credit.loan.application.model.LoanApplicationStatus;
 import java6.credit.loan.application.model.User;
 import java6.credit.loan.application.repository.LoanApplicationRepository;
+import java6.credit.loan.application.service.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,9 @@ public class LoanApplicationService {
 
     @Autowired
     private LoanApplicationRepository loanApplicationRepository;
+
+    @Autowired
+    private UserValidator userValidator;
 
     public LoanApplication getLoanApplicationById(Long id) {
         return loanApplicationRepository

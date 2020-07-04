@@ -84,4 +84,16 @@ public final class LoanApplication {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "LoanApplication{" +
+                "loanApplicationPk=" + loanApplicationPk +
+                ", loanApplicationStatus=" + loanApplicationStatus +
+                ", from=" + from +
+                ", to=" + to +
+                ", amount=" + amount +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
