@@ -8,7 +8,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private long userPk;
+    private Long userPk;
 
     @Column
     private String user;
@@ -26,11 +26,11 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<LoanApplication> loanApplications;
 
-    public long getUserPk() {
+    public Long getUserPk() {
         return userPk;
     }
 
-    public void setUserPk(long userPk) {
+    public void setUserPk(Long userPk) {
         this.userPk = userPk;
     }
 
