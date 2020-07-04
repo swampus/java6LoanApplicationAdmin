@@ -45,4 +45,8 @@ public class LoanApplicationService {
                 }
         );
     }
+
+    public void saveLoanApplication(LoanApplication loanApplication){
+        loanApplicationRepository.save(loanApplication);
+    }
 }

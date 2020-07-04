@@ -31,4 +31,12 @@ public class UserService {
         return result;
     }
 
+    public void saveUser(User user){
+        userRepository.save(user);
+    }
+
+    public User findUserByPhone(String phone){
+        return userRepository.findByPhone(phone);
+    }
+
 }

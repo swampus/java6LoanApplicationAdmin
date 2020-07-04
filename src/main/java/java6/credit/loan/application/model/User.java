@@ -73,4 +73,16 @@ public class User {
     public void setLoanApplications(Set<LoanApplication> loanApplications) {
         this.loanApplications = loanApplications;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userPk=" + userPk +
+                ", user='" + user + '\'' +
+                ", surname='" + surname + '\'' +
+                ", personalCode='" + personalCode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", loanApplications=" + loanApplications +
+                '}';
+    }
 }
