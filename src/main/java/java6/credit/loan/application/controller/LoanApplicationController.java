@@ -33,11 +33,11 @@ public class LoanApplicationController {
     }
 
 
-    @PostMapping("/loanApplication/{id}/status")
+    @PostMapping("/loanApplication/{id}/{status}")
     public void changeLoanApplicationStatus(@PathVariable Long id,
-                                            LoanApplicationStatus loanApplicationStatus) {
+                                            @PathVariable LoanApplicationStatus status) {
         loanApplicationService
-                .changeLoanApplicationStatus(id, loanApplicationStatus);
+                .changeLoanApplicationStatus(id, status);
     }
 
 
