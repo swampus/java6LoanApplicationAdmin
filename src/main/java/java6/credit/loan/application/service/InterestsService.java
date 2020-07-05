@@ -3,6 +3,7 @@ package java6.credit.loan.application.service;
 import java6.credit.loan.application.model.Interests;
 import java6.credit.loan.application.repository.InterestsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

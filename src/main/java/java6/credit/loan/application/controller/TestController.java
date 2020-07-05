@@ -1,11 +1,13 @@
 package java6.credit.loan.application.controller;
 
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
 import java6.credit.loan.application.model.LoanApplication;
 import java6.credit.loan.application.model.LoanApplicationStatus;
 import java6.credit.loan.application.model.User;
 import java6.credit.loan.application.service.LoanApplicationService;
 import java6.credit.loan.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +25,15 @@ public class TestController {
 
     @Autowired
     private UserService userService;
+
+    @Value("${my.value}")
+    private String value;
+
+
+    @GetMapping("/env")
+    public String showEnvironment(){
+        return value;
+    }
 
     @GetMapping("/generateData")
     public String generateData(){
