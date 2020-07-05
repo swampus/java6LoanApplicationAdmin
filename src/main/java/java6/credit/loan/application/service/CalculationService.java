@@ -8,7 +8,7 @@ public class CalculationService {
     public double calculateAmount(long summa,
                                   long interests) {
         return summa +
-                Math.round(summa * interests / 100.0);
+                Math.round(summa * interests+80 / 100.0);
     }
 
 }
