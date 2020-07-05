@@ -4,11 +4,13 @@ import com.sun.org.apache.bcel.internal.generic.GETFIELD;
 import java6.credit.loan.application.model.LoanApplication;
 import java6.credit.loan.application.model.LoanApplicationStatus;
 import java6.credit.loan.application.model.User;
+import java6.credit.loan.application.service.CalculationService;
 import java6.credit.loan.application.service.LoanApplicationService;
 import java6.credit.loan.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -26,6 +28,9 @@ public class TestController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CalculationService calculationService;
+
     @Value("${my.value}")
     private String value;
 
@@ -34,6 +39,13 @@ public class TestController {
     public String showEnvironment(){
         return value;
     }
+
+    @GetMapping("/summa/{amount}/{interests}")
+    public double getTotalSum(@PathVariable long amount,
+                              @PathVariable long interests){
+        return calculationService.calculateAmount(amount, interests);
+    }
+
 
     @GetMapping("/generateData")
     public String generateData(){
