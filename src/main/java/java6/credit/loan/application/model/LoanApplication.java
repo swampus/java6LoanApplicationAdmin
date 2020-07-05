@@ -1,6 +1,11 @@
 package java6.credit.loan.application.model;
 
+import com.sun.jmx.snmp.UserAcl;
+import java6.credit.loan.application.annotation.ValidField;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -20,10 +25,13 @@ public final class LoanApplication {
     @Column(name = "[to]")
     private Date to;
 
+    @Min(value = 50, message = "Minumum valuee is 50")
+    @Max(value = 300, message = "Maximum length is 300")
     @Column
     private BigDecimal amount;
 
-    @Column
+    @Column(name = "type", length = 50)
+    @NotBlank(message = "AAAAAAAAAAAAAAAAAAAAAA")
     private String type;
 
     @ManyToOne

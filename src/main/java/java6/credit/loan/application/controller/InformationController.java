@@ -1,6 +1,7 @@
 package java6.credit.loan.application.controller;
 
 import java6.credit.loan.application.Application;
+import java6.credit.loan.application.annotation.ValidField;
 import java6.credit.loan.application.model.misc.ServerInformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ public class InformationController {
     private static Logger LOG
             = LoggerFactory.getLogger(Application.class);
     private static Date serverStartDate;
+
 
     @Value("${project.author}")
     private String author;
