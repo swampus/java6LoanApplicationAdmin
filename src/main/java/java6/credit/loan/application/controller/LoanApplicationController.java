@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@RestController("/api/rest/LoanApplication.svc")
+@RestController
+@RequestMapping("/api/rest/LoanApplication.svc")
 public class LoanApplicationController {
 
     @Autowired

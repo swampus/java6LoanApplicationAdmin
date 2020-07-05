@@ -1,5 +1,6 @@
 package java6.credit.loan.application.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.jmx.snmp.UserAcl;
 import java6.credit.loan.application.annotation.ValidField;
 import org.hibernate.validator.constraints.Length;
@@ -35,6 +36,7 @@ public final class LoanApplication {
     private String type;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @ManyToOne
