@@ -36,7 +36,6 @@ public final class LoanApplication {
     private String type;
 
     @ManyToOne
-    @JsonIgnore
     private User user;
 
     @ManyToOne
