@@ -24,7 +24,6 @@ public class AppConfiguration {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        mapper.setDateFormat(dateFormat);
         MappingJackson2HttpMessageConverter converter =
                 new MappingJackson2HttpMessageConverter(mapper);
         return converter;

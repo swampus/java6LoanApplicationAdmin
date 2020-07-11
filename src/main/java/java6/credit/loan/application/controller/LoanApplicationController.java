@@ -1,5 +1,7 @@
 package java6.credit.loan.application.controller;
 
+import java6.credit.loan.application.dto.LoanApplicationDTO;
+import java6.credit.loan.application.dto.LoanApplicationMapper;
 import java6.credit.loan.application.model.LoanApplication;
 import java6.credit.loan.application.model.LoanApplicationStatus;
 import java6.credit.loan.application.service.LoanApplicationService;
@@ -20,12 +22,18 @@ public class LoanApplicationController {
     @Autowired
     private LoanApplicationValidatorService loanApplicationValidatorService;
 
+    @Autowired
+    private LoanApplicationMapper loanApplicationMapper;
+
     @PostMapping("/loanApplication")
     public void saveLoanApplication(
-            @RequestBody @Valid LoanApplication loanApplication) {
+            @RequestBody @Valid LoanApplicationDTO loanApplicationDTO) {
 
-        long userId = loanApplication.getUser().getUserPk();
+        long userId = loanApplicationDTO.getUserId();
         loanApplicationValidatorService.isMaxApplicationCountReach(userId);
+
+        LoanApplication loanApplication
+                = loanApplicationMapper.fromDto(loanApplicationDTO);
 
         loanApplicationService.saveLoanApplication(loanApplication);
 
@@ -33,8 +41,13 @@ public class LoanApplicationController {
 
 
     @GetMapping("/loanApplication/{id}")
-    public LoanApplication getLoanApplicationById(@PathVariable Long id) {
-        return loanApplicationService.getLoanApplicationById(id);
+    public LoanApplicationDTO getLoanApplicationById(@PathVariable Long id) {
+        LoanApplication loanApplication
+                = loanApplicationService.getLoanApplicationById(id);
+        LoanApplicationDTO loanApplicationDTO
+                = loanApplicationMapper.toDto(loanApplication);
+        return loanApplicationDTO;
+
     }
 
     @GetMapping("/loanApplications")
