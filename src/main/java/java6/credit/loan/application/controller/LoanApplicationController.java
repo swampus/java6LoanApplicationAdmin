@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/rest/LoanApplication.svc")
@@ -51,8 +53,10 @@ public class LoanApplicationController {
     }
 
     @GetMapping("/loanApplications")
-    public List<LoanApplication> getLoanApplications() {
-        return loanApplicationService.getAllLoanApplications();
+    public List<LoanApplicationDTO> getLoanApplications() {
+        return loanApplicationService.getAllLoanApplications()
+                .stream().map(t -> loanApplicationMapper.toDto(t))
+                .collect(Collectors.toList());
     }
 
 
